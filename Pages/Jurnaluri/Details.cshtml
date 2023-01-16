@@ -1,0 +1,43 @@
+﻿@page
+@model Belu_Ioana_Web.Pages.Jurnaluri.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Jurnal</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Zi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Zi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Aliment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Aliment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Calorii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Calorii)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Data)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Jurnal?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

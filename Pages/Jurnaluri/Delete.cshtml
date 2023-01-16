@@ -1,0 +1,40 @@
+﻿@page
+@model Belu_Ioana_Web.Pages.Jurnaluri.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Jurnal</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Zi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Zi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Aliment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Aliment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Jurnal.Calorii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Jurnal.Calorii)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Jurnal.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

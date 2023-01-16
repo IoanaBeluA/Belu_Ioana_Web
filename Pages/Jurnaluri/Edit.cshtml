@@ -1,0 +1,75 @@
+﻿@page
+@model Belu_Ioana_Web.Pages.Jurnaluri.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Jurnal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Jurnal.ID" />
+            <div class="form-group">
+                <label asp-for="Jurnal.Zi" class="control-label"></label>
+                <input asp-for="Jurnal.Zi" class="form-control" />
+                <span asp-validation-for="Jurnal.Zi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jurnal.Aliment" class="control-label"></label>
+                <input asp-for="Jurnal.Aliment" class="form-control" />
+                <span asp-validation-for="Jurnal.Aliment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jurnal.Calorii" class="control-label"></label>
+                <input asp-for="Jurnal.Calorii" class="form-control" />
+                <span asp-validation-for="Jurnal.Calorii" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Jurnal.Data" class="control-label"></label>
+                <input asp-for="Jurnal.Data" class="form-control" />
+                <span asp-validation-for="Jurnal.Data" class="textdanger"></span>
+            </div>
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                        <tr>
+                            @{
+                            int cnt = 0;
+                            foreach (var cat in Model.AssignedCategoryDataList)
+                            {
+                                if (cnt++ % 3 == 0)
+                            {
+                            @:</tr><tr>
+                            }
+                            @:<td>
+                        <input type="checkbox"
+                         name="selectedCategories"
+                         value="@cat.CategoryID"
+                         @(Html.Raw(cat.Assigned ? "checked=\"checked\"" : "")) />
+                         @cat.CategoryID @: @cat.Name
+                         @:</td>
+                         }
+                         @:</tr>
+                        }
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
